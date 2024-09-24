@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Map with Current Location</title>
+    <link rel="stylesheet" href="stylesheet.css">
+</head>
+<body>
+    <h1>現在地をカスタムマップに表示</h1>
+    
+    <div id="map-container">
+        <img id="custom-map" src="your-map-image.png" alt="Custom Map">
+        <div id="location-marker"></div>
+    </div>
+
+    <p id="status">現在地を取得中...</p>
+
+    <script>
+        function getCurrentLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(showPosition, showError);
+            } else {
+                document.getElementById("status").textContent = "Geolocationはこのブラウザでサポートされていません。";
+            }
+        }
+
+        function showPosition(position) {
+            const lat = position.coords.latitude;
+            const lng = position.coords.longitude;
+            
+            // カスタムマップ上での位置を計算する（ここでマップのスケールに応じて調整する必要があります）
+            const mapWidth = document.getElementById("custom-map").width;
+            const mapHeight = document.getElementById("custom-map").height;
+            
+            // 仮の位置計算
+            const x = (lng + 180) * (mapWidth / 360);  // 経度をx座標に変換
+            const y = (90 - lat) * (mapHeight / 180);  // 緯度をy座標に変換
+
+            const marker = document.getElementById("location-marker");
+            marker.style.left = `${x}px`;
+            marker.style.top = `${y}px`;
+
+            document.getElementById("status").textContent = `緯度: ${lat}, 経度: ${lng}`;
+        }
+
+        function showError(error) {
+            switch(error.code) {
+                case error.PERMISSION_DENIED:
+                    document.getElementById("status").textContent = "ユーザーが位置情報の取得を拒否しました。";
+                    break;
+                case error.POSITION_UNAVAILABLE:
+                    document.getElementById("status").textContent = "位置情報が利用できません。";
+                    break;
+                case error.TIMEOUT:
+                    document.getElementById("status").textContent = "位置情報の取得がタイムアウトしました。";
+                    break;
+                case error.UNKNOWN_ERROR:
+                    document.getElementById("status").textContent = "不明なエラーが発生しました。";
+                    break;
+            }
+        }
+
+        window.onload = getCurrentLocation;
+    </script>
+</body>
+</html>
