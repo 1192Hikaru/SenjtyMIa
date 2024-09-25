@@ -31,6 +31,18 @@ h1 {
     display: none;
 }
 
+#danger-zone {
+    position: absolute;
+    width: 100px; /* 危険範囲の円のサイズを指定 */
+    height: 100px;
+    background-color: rgba(255, 0, 0, 0.3); /* 赤の半透明 */
+    border-radius: 50%;
+    border: 2px solid red;
+    top: 50%; /* 仮の位置 */
+    left: 50%; /* 仮の位置 */
+    transform: translate(-50%, -50%); /* 中心を合わせる */
+}
+
 #status {
     margin-top: 20px;
     font-size: 18px;
