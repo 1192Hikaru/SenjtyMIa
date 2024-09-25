@@ -3,20 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Custom Map with Current Location</title>
+    <title>Custom Map with Danger Zone Notification</title>
     <link rel="stylesheet" href="stylesheet.css">
 </head>
 <body>
-    <h1>現在地をカスタムマップに表示</h1>
+    <h1>現在地と危険範囲の表示</h1>
     
     <div id="map-container">
         <img id="custom-map" src="your-map-image.png" alt="Custom Map">
         <div id="location-marker"></div>
+        <div id="danger-zone"></div>
     </div>
 
     <p id="status">現在地を取得中...</p>
 
     <script>
+        // 危険範囲の中心点と半径（メートル単位）
+        const dangerZone = {
+            lat: 35.681236,  // 例：東京駅の緯度
+            lng: 139.767125,  // 例：東京駅の経度
+            radius: 500       // 半径500メートルの危険範囲
+        };
+
         function getCurrentLocation() {
             if (navigator.geolocation) {
                 navigator.geolocation.getCurrentPosition(showPosition, showError);
@@ -29,19 +37,26 @@
             const lat = position.coords.latitude;
             const lng = position.coords.longitude;
             
-            // カスタムマップ上での位置を計算する（ここでマップのスケールに応じて調整する必要があります）
+            // マップのサイズに基づいて位置を計算
             const mapWidth = document.getElementById("custom-map").width;
             const mapHeight = document.getElementById("custom-map").height;
             
-            // 仮の位置計算
+            // 仮の位置計算（マップのスケールに依存）
             const x = (lng + 180) * (mapWidth / 360);  // 経度をx座標に変換
             const y = (90 - lat) * (mapHeight / 180);  // 緯度をy座標に変換
 
             const marker = document.getElementById("location-marker");
             marker.style.left = `${x}px`;
             marker.style.top = `${y}px`;
+            marker.style.display = 'block';
 
             document.getElementById("status").textContent = `緯度: ${lat}, 経度: ${lng}`;
+            
+            // 距離を計算して危険範囲内かチェック
+            const distance = calculateDistance(lat, lng, dangerZone.lat, dangerZone.lng);
+            if (distance <= dangerZone.radius) {
+                alert("危険範囲内にいます！");
+            }
         }
 
         function showError(error) {
@@ -59,6 +74,20 @@
                     document.getElementById("status").textContent = "不明なエラーが発生しました。";
                     break;
             }
+        }
+
+        // Haversineの公式を使用して距離を計算（メートル単位）
+        function calculateDistance(lat1, lng1, lat2, lng2) {
+            const R = 6371000; // 地球の半径（メートル単位）
+            const dLat = (lat2 - lat1) * (Math.PI / 180);
+            const dLng = (lng2 - lng1) * (Math.PI / 180);
+            const a = 
+                Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+                Math.cos(lat1 * (Math.PI / 180)) * Math.cos(lat2 * (Math.PI / 180)) *
+                Math.sin(dLng / 2) * Math.sin(dLng / 2);
+            const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+            const distance = R * c; // 距離（メートル）
+            return distance;
         }
 
         window.onload = getCurrentLocation;
