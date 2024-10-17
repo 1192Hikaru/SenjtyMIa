@@ -1,10 +1,11 @@
 // マップの初期化
 var map = L.map('map').setView([35.6895, 139.6917], 13);
 
-// タイルレイヤーの追加
-L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-}).addTo(map);
+// 自作タイルレイヤーの追加
+L.tileLayer('https://1192Hikaru.github.io/MPcreate1017/tiles/{z}/{x}/{y}.png', {
+    maxZoom: 18,
+    attribution: '自作マップ &copy; <a href="https://www.example.com">Your Name</a>'
+}).addTo
 
 // 危険な場所のマーカーを追加
 var dangerZones = [
