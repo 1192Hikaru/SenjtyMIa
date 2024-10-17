@@ -9,9 +9,9 @@ var map = L.map('map').setView([35.6895, 139.6917], 13);
 // タイルレイヤーの追加
 L.tileLayer('MPcreate1017/{z}/{x}/{y}.png', { 
     // タイルのパスを指定
-    maxZoom: 20, // 使用しているタイルのズームレベルに合わせる
+    maxZoom: 8, // 使用しているタイルのズームレベルに合わせる
     tileSize: 256,
-    zoomOffset: -1
+    zoomOffset: 0
 }).addTo
 
 // 危険な場所のマーカーを追加
