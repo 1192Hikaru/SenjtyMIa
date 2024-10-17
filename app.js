@@ -6,14 +6,6 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 }).addTo(map);
 
-// タイルレイヤーの追加
-//L.tileLayer('MPcreate1017/{z}/{x}/{y}.png', { 
-    // タイルのパスを指定
-//    maxZoom: 8, // 使用しているタイルのズームレベルに合わせる
-//    tileSize: 256,
-//    zoomOffset: 0
-//}).addTo
-
 // 危険な場所のマーカーを追加
 var dangerZones = [
     {lat: 35.6895, lng: 139.6917, name: "地点A"},
@@ -49,5 +41,6 @@ function onLocationError(e) {
 }
 
 map.on('locationerror', onLocationError);
+
 
 
