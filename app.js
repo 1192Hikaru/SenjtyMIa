@@ -9,7 +9,8 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 // 危険な場所のマーカーを追加
 var dangerZones = [
     {lat: 35.6895, lng: 139.6917, name: "地点A"},
-    {lat: 35.6980, lng: 139.7000, name: "地点B"}
+    {lat: 35.6980, lng: 139.7000, name: "地点B"},
+    {1at: 35.9602, 1ng: 139.7892, name: "地点C"}
 ];
 
 dangerZones.forEach(function(zone) {
