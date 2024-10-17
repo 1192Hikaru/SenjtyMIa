@@ -1,11 +1,12 @@
-// マップの初期化
-var map = L.map('map').setView([35.6895, 139.6917], 13);
+// 地図の初期化
+var map = L.map('map').setView([35.6895, 139.6917], 10); // Tokyoの緯度経度
 
-// 自作タイルレイヤーの追加
-L.tileLayer('https://1192Hikaru.github.io/MPcreate1017/tiles/{z}/{x}/{y}.png', {
+// タイルレイヤーの追加
+L.tileLayer('MPcreate1017/{z}/{x}/{y}.png', { // タイルのパスを指定
     maxZoom: 18,
-    attribution: '自作マップ &copy; <a href="https://www.example.com">Your Name</a>'
-}).addTo
+    tileSize: 256,
+    zoomOffset: -1
+}).addTo(map);
 
 // 危険な場所のマーカーを追加
 var dangerZones = [
