@@ -19,17 +19,25 @@ dangerZones.forEach(function(zone) {
 // 現在地の追跡
 map.locate({setView: true, watch: true, maxZoom: 16});
 
+// 音楽を再生する関数
+var alertSound = document.getElementById('alertSound');
+
+function playSound() {
+    alertSound.currentTime = 0; // 音楽を最初から再生
+    alertSound.play();
+}
+
 function onLocationFound(e) {
     var radius = e.accuracy / 2;
 
     L.marker(e.latlng).addTo(map).bindPopup("あなたはここにいます").openPopup();
-
     L.circle(e.latlng, radius).addTo(map);
 
     dangerZones.forEach(function(zone) {
         var distance = map.distance(e.latlng, [zone.lat, zone.lng]);
         if (distance < 100) { // 100メートル以内に近づいたら警告
             alert("警告: " + zone.name + " に近づいています！");
+            playSound(); // 音楽を鳴らす
         }
     });
 }
@@ -41,6 +49,3 @@ function onLocationError(e) {
 }
 
 map.on('locationerror', onLocationError);
-
-
-
