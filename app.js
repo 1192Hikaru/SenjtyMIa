@@ -17,9 +17,8 @@ dangerZones.forEach(function(zone) {
     L.marker([zone.lat, zone.lng]).addTo(map).bindPopup(zone.name);
 });
 
-// 現在地マーカーと円を保持する変数を作成
+// 現在地マーカーを保持する変数を作成
 var currentLocationMarker;
-var currentLocationCircle;
 
 // 音楽を再生する関数
 var alertSound = document.getElementById('alertSound');
@@ -30,19 +29,13 @@ function playSound() {
 }
 
 function onLocationFound(e) {
-    var radius = e.accuracy / 2;
-
-    // 既存の現在地マーカーと円を削除
+    // 既存の現在地マーカーを削除
     if (currentLocationMarker) {
         map.removeLayer(currentLocationMarker);
     }
-    if (currentLocationCircle) {
-        map.removeLayer(currentLocationCircle);
-    }
 
-    // 新しい現在地マーカーと円を追加
+    // 新しい現在地マーカーを追加
     currentLocationMarker = L.marker(e.latlng).addTo(map).bindPopup("あなたはここにいます").openPopup();
-    currentLocationCircle = L.circle(e.latlng, radius).addTo(map);
 
     dangerZones.forEach(function(zone) {
         var distance = map.distance(e.latlng, [zone.lat, zone.lng]);
