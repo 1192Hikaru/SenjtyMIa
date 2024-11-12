@@ -10,7 +10,10 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 var dangerZones = [
     {lat: 35.6895, lng: 139.6917, name: "地点AD"},
     {lat: 35.6980, lng: 139.7000, name: "地点BE"},
-    {lat: 35.9602, lng: 139.7891, name: "地点CF"}
+    {lat: 35.9602, lng: 139.7891, name: "地点CF"},
+    {lat: 35.4106, lng: 139.4413, name: "2691"},
+    {lat: 35.4024, lng: 139.4542, name: "2696"},
+    {lat: 35.4054, lng: 139.4547, name: "2701"},
 ];
 
 dangerZones.forEach(function(zone) {
