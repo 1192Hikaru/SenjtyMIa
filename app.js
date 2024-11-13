@@ -107,8 +107,8 @@ function onLocationFound(e) {
 
     dangerZones.forEach(function(zone) {
         var distance = map.distance(e.latlng, [zone.lat, zone.lng]);
-        if (distance < 10) { // 10メートル以内に近づいたら警告
-            alert("警告: " + zone.name + " に近づいています！");
+        if (distance < 100) { // 10メートル以内に近づいたら警告
+            alert("警告: " + zone.name + " に近づいています！100m以内");
             playSound(); // 音楽を鳴らす
         }
     });
