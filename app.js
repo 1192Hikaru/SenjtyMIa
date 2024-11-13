@@ -68,10 +68,10 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 
 // 危険な場所のマーカーを追加
 var dangerZones = [
-    {lat: 35.6895, lng: 139.6917, name: "地点A"},
-    {lat: 35.6980, lng: 139.7000, name: "地点B"},
-    {lat: 35.9602, lng: 139.7891, name: "地点C"},
-    {lat: 35.4106, lng: 139.4413, name: "2691"},
+    {lat: 35.6895, lng: 139.6917, name: "地点QQ"},
+    {lat: 35.6980, lng: 139.7000, name: "地点WW"},
+    {lat: 35.9602, lng: 139.7891, name: "地点EE"},
+    {lat: 35.4106, lng: 139.4413, name: "RRRRR"},
     ];
 
 dangerZones.forEach(function(zone) {
@@ -107,7 +107,7 @@ function onLocationFound(e) {
 
     dangerZones.forEach(function(zone) {
         var distance = map.distance(e.latlng, [zone.lat, zone.lng]);
-        if (distance < 10) { // 10メートル以内に近づいたら警告
+        if (distance < 100) { // 100メートル以内に近づいたら警告
             playSound(); // 音楽を鳴らす
             alert("警告: " + zone.name + " に近づいています！");
         }
