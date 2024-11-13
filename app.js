@@ -104,14 +104,6 @@ function onLocationFound(e) {
     // 新しい現在地マーカーと円を追加
     currentLocationMarker = L.marker(e.latlng).addTo(map).bindPopup("あなたはここにいます").openPopup();
     currentLocationCircle = L.circle(e.latlng, radius).addTo(map);
-
-    dangerZones.forEach(function(zone) {
-        var distance = map.distance(e.latlng, [zone.lat, zone.lng]);
-        if (distance < 100) { // 100メートル以内に近づいたら警告
-            playSound(); // 音楽を鳴らす
-            alert("警告: " + zone.name + " に近づいています！");
-        }
-    });
 }
 
 map.on('locationfound', onLocationFound);
