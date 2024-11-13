@@ -36,16 +36,8 @@ function playSound() {
 function onLocationFound(e) {
     var radius = e.accuracy / 2;
 
-    L.marker(e.latlng).addTo(map).bindPopup("あなたはここにいます").openPopup();
+    L.marker(e.latlng).addTo(map).bindPopup("あなたはここにいます11").openPopup();
     L.circle(e.latlng, radius).addTo(map);
-
-    dangerZones.forEach(function(zone) {
-        var distance = map.distance(e.latlng, [zone.lat, zone.lng]);
-        if (distance < 100) { // 100メートル以内に近づいたら警告
-            playSound(); // 音楽を鳴らす
-            alert("警告: " + zone.name + " に近づいています！100-2");
-        }
-    });
 }
 
 map.on('locationfound', onLocationFound);
@@ -108,8 +100,8 @@ function onLocationFound(e) {
     dangerZones.forEach(function(zone) {
         var distance = map.distance(e.latlng, [zone.lat, zone.lng]);
         if (distance < 100) { // 10メートル以内に近づいたら警告
-            alert("警告: " + zone.name + " に近づいています！100m以内");
             playSound(); // 音楽を鳴らす
+            alert("警告: " + zone.name + " に近づいています！100m以内");
         }
     });
 }
