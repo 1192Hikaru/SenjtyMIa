@@ -17,7 +17,6 @@ var dangerZones = [
     {lat: 35.6850, lng: 139.7369, name: "Tokyo"},
     {lat: 35.7012, lng: 139.7365, name: "101v2"},
     {lat: 35.6852, lng: 139.7684, name: "102v2"},
-    {lat: 35.68503, lng: 139.73609, name: "110"},
     {lat: 35.685034, lng: 139.736093, name: "111"},
 ];
 
