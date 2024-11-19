@@ -8,15 +8,10 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 
 // 危険な場所のマーカーを追加
 var dangerZones = [
-    {lat: 35.6895, lng: 139.6917, name: "地点A"},
-    {lat: 35.6980, lng: 139.7000, name: "地点B"},
-    {lat: 35.9602, lng: 139.7891, name: "地点CC"},
-    {lat: 35.4024, lng: 139.4542, name: "26AA"},
-    {lat: 35.4054, lng: 139.4547, name: "27BB"},
-    {lat: 35.4030, lng: 139.4550, name: "27CC"},
-    {lat: 35.6850, lng: 139.7369, name: "Tokyo"},
-    {lat: 35.7012, lng: 139.7365, name: "101v2"},
-    {lat: 35.6852, lng: 139.7684, name: "102v2"},
+    {lat: 35.9602, lng: 139.7891, name: "地点CCC"},
+    {lat: 35.420984, lng: 139.461656, name: "101"}, 
+    {lat: 35.410888, lng: 139.466372, name: "102"},
+    {lat: 35.391143, lng: 139.451422, name: "103"},
     {lat: 35.685034, lng: 139.736093, name: "111"},
 ];
 
