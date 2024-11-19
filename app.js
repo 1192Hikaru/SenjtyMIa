@@ -14,7 +14,9 @@ var dangerZones = [
     {lat: 35.4024, lng: 139.4542, name: "26AA"},
     {lat: 35.4054, lng: 139.4547, name: "27BB"},
     {lat: 35.4030, lng: 139.4550, name: "27CC"},
-    {lat: 35.6850, lng: 139.7369, name: "Tokyo"}
+    {lat: 35.6850, lng: 139.7369, name: "Tokyo"},
+    {lat: 35.7012735, lng: 139.7365725, name: "101"},// 変換後
+    {lat: 35.6852402, lng: 139.7684277, name: "102"}
 ];
 
 dangerZones.forEach(function(zone) {
