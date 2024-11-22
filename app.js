@@ -18,11 +18,11 @@ var blueIcon = L.icon({
 
 var redIcon = L.icon({
     iconUrl: 'Icon/Icons-Land-Vista-Map-Markers-Map-Marker-Marker-Outside-Pink.256.png', // 赤いマーカーアイコンのURLを指定
-    iconSize: [25, 41],
-    iconAnchor: [12, 41],
-    popupAnchor: [1, -34],
+    iconSize: [30, 41],// アイコンのサイズを指定
+    iconAnchor: [12, 41],// アイコンのアンカー位置を指定
+    popupAnchor: [1, -34],// ポップアップのアンカー位置を指定
     shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-shadow.png',
-    shadowSize: [41, 41]
+    shadowSize: [41, 41]// 影のサイズを指定
 });
 
 // 危険な場所のマーカーを追加
