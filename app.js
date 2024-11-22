@@ -97,6 +97,9 @@ var overlayMaps = {
 };
 L.control.layers(null, overlayMaps).addTo(map);
 
+// 初期表示時に全てのマーカーを表示
+map.fitBounds(markerCoords);
+
 // 現在地マーカーを保持する変数を作成
 var currentLocationMarker;
 
