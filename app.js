@@ -25,6 +25,24 @@ var redIcon = L.icon({
     shadowSize: [41, 41]// 影のサイズを指定
 });
 
+var ChartreuseIcon = L.icon({
+    iconUrl: 'Icon/Icons-Land-Vista-Map-Markers-Map-Marker-Marker-Outside-Chartreuse.256.png',
+    iconSize: [41, 41],// アイコンのサイズを指定
+    iconAnchor: [12, 41],// アイコンのアンカー位置を指定
+    popupAnchor: [1, -34],// ポップアップのアンカー位置を指定
+    shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-shadow.png',
+    shadowSize: [41, 41]// 影のサイズを指定
+});
+
+var AdministratorIcon = L.icon({
+    iconUrl: 'Icon/Icons8-Windows-8-Users-Administrator.512.png',
+    iconSize: [41, 41],// アイコンのサイズを指定
+    iconAnchor: [12, 41],// アイコンのアンカー位置を指定
+    popupAnchor: [1, -34],// ポップアップのアンカー位置を指定
+    shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-shadow.png',
+    shadowSize: [41, 41]// 影のサイズを指定
+});
+
 // 危険な場所のマーカーを追加
 var dangerZones = [
     {lat: 35.9602, lng: 139.7891, name: "地点CCCACC"},
@@ -61,13 +79,13 @@ dangerZones.forEach(function(zone) {
     L.marker([zone.lat, zone.lng], { icon: redIcon }).addTo(dangerLayer).bindPopup(zone.name);
 });
 suspiciousMarkers.forEach(function(zone) {
-    L.marker([zone.lat, zone.lng], { icon: blueIcon }).addTo(suspiciousLayer).bindPopup(zone.name);
+    L.marker([zone.lat, zone.lng], { icon: AdministratorIcon }).addTo(suspiciousLayer).bindPopup(zone.name);
 });
 agingMarkers.forEach(function(zone) {
     L.marker([zone.lat, zone.lng], { icon: blueIcon }).addTo(agingLayer).bindPopup(zone.name);
 });
 constructionMarkers.forEach(function(zone) {
-    L.marker([zone.lat, zone.lng], { icon: redIcon }).addTo(constructionLayer).bindPopup(zone.name);
+    L.marker([zone.lat, zone.lng], { icon: ChartreuseIcon }).addTo(constructionLayer).bindPopup(zone.name);
 });
 
 // レイヤーコントロールの追加
