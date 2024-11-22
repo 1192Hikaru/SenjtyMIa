@@ -6,6 +6,23 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 }).addTo(map);
 
+// カスタムアイコンの作成
+var blueIcon = L.ExtraMarkers.icon({
+    icon: 'fa-number',
+    number: '1',
+    markerColor: 'blue',
+    shape: 'circle',
+    prefix: 'fa'
+});
+
+var redIcon = L.ExtraMarkers.icon({
+    icon: 'fa-number',
+    number: '2',
+    markerColor: 'red',
+    shape: 'circle',
+    prefix: 'fa'
+});
+
 // 危険な場所のマーカーを追加
 var dangerZones = [
     {lat: 35.9602, lng: 139.7891, name: "地点CCCACC"},
@@ -38,18 +55,18 @@ var suspiciousLayer = L.layerGroup();
 var agingLayer = L.layerGroup();
 var constructionLayer = L.layerGroup();
 
-// 各マーカーをレイヤーグループに追加
+// 各マーカーをレイヤーグループに追加し、カスタムアイコンを適用
 dangerZones.forEach(function(zone) {
-    L.marker([zone.lat, zone.lng]).addTo(dangerLayer).bindPopup(zone.name);
+    L.marker([zone.lat, zone.lng], { icon: redIcon }).addTo(dangerLayer).bindPopup(zone.name);
 });
 suspiciousMarkers.forEach(function(zone) {
-    L.marker([zone.lat, zone.lng]).addTo(suspiciousLayer).bindPopup(zone.name);
+    L.marker([zone.lat, zone.lng], { icon: blueIcon }).addTo(suspiciousLayer).bindPopup(zone.name);
 });
 agingMarkers.forEach(function(zone) {
-    L.marker([zone.lat, zone.lng]).addTo(agingLayer).bindPopup(zone.name);
+    L.marker([zone.lat, zone.lng], { icon: blueIcon }).addTo(agingLayer).bindPopup(zone.name);
 });
 constructionMarkers.forEach(function(zone) {
-    L.marker([zone.lat, zone.lng]).addTo(constructionLayer).bindPopup(zone.name);
+    L.marker([zone.lat, zone.lng], { icon: redIcon }).addTo(constructionLayer).bindPopup(zone.name);
 });
 
 // レイヤーコントロールの追加
@@ -107,5 +124,3 @@ map.on('locationerror', onLocationError);
 
 // 初回の位置情報を取得
 map.locate({setView: true, watch: true, maxZoom: 16});
-
-
