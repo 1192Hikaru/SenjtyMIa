@@ -17,7 +17,7 @@ var blueIcon = L.icon({
 });
 
 var redIcon = L.icon({
-    iconUrl: 'path/to/red-marker-icon.png', // 赤いマーカーアイコンのURLを指定
+    iconUrl: 'Icon/Icons-Land-Vista-Map-Markers-Map-Marker-Marker-Outside-Pink.256.png', // 赤いマーカーアイコンのURLを指定
     iconSize: [25, 41],
     iconAnchor: [12, 41],
     popupAnchor: [1, -34],
