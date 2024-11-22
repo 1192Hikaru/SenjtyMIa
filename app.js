@@ -7,20 +7,22 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 }).addTo(map);
 
 // カスタムアイコンの作成
-var blueIcon = L.ExtraMarkers.icon({
-    icon: 'fa-number',
-    number: '1',
-    markerColor: 'blue',
-    shape: 'circle',
-    prefix: 'fa'
+var blueIcon = L.icon({
+    iconUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon.png',
+    iconSize: [25, 41],
+    iconAnchor: [12, 41],
+    popupAnchor: [1, -34],
+    shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-shadow.png',
+    shadowSize: [41, 41]
 });
 
-var redIcon = L.ExtraMarkers.icon({
-    icon: 'fa-number',
-    number: '2',
-    markerColor: 'red',
-    shape: 'circle',
-    prefix: 'fa'
+var redIcon = L.icon({
+    iconUrl: 'path/to/red-marker-icon.png', // 赤いマーカーアイコンのURLを指定
+    iconSize: [25, 41],
+    iconAnchor: [12, 41],
+    popupAnchor: [1, -34],
+    shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-shadow.png',
+    shadowSize: [41, 41]
 });
 
 // 危険な場所のマーカーを追加
@@ -33,7 +35,6 @@ var dangerZones = [
     {lat: 35.7865950, lng: 139.7915313, name: "交通事故No.3"}
 ];
 
-// 新しいマーカーの追加
 var suspiciousMarkers = [
     {lat: 35.6895, lng: 139.6917, name: "不審者情報1"},
     {lat: 35.6995, lng: 139.7017, name: "不審者情報2"}
