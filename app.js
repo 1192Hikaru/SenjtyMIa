@@ -128,10 +128,11 @@ function onLocationFound(e) {
     }
 
     // 新しい現在地マーカーを追加
-    currentLocationMarker = L.marker(e.latlng).addTo(map).bindPopup("あなたはここにいます").openPopup();
+    currentLocationMarker = L.marker(e.latlng).addTo(map);
 
-    // 初回のみ地図のビューを設定
+    // 初回のみポップアップを表示
     if (!initialLocationSet) {
+        currentLocationMarker.bindPopup("あなたはここにいます").openPopup();
         map.setView(e.latlng, 16);
         initialLocationSet = true;
     }
@@ -149,6 +150,9 @@ function onLocationError(e) {
 }
 
 map.on('locationerror', onLocationError);
+
+// 初回の位置情報を取得
+map.locate({ setView: false, watch: true, maxZoom: 16 });
 
 // 初回の位置情報を取得
 map.locate({ setView: false, watch: true, maxZoom: 16 });
