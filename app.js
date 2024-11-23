@@ -97,9 +97,11 @@ var overlayMaps = {
 };
 L.control.layers(null, overlayMaps).addTo(map);
 
-
 // 現在地マーカーを保持する変数を作成
 var currentLocationMarker;
+
+// 初回位置取得済みフラグを追加
+var initialLocationSet = false;
 
 // 音楽を再生する関数
 var alertSound = document.getElementById('alertSound');
@@ -128,6 +130,12 @@ function onLocationFound(e) {
     // 新しい現在地マーカーを追加
     currentLocationMarker = L.marker(e.latlng).addTo(map).bindPopup("あなたはここにいます").openPopup();
 
+    // 初回のみ地図のビューを設定
+    if (!initialLocationSet) {
+        map.setView(e.latlng, 16);
+        initialLocationSet = true;
+    }
+
     // 危険ゾーンのチェック
     checkDangerZones(e.latlng);
 }
@@ -143,5 +151,5 @@ function onLocationError(e) {
 map.on('locationerror', onLocationError);
 
 // 初回の位置情報を取得
-map.locate({setView: true, watch: true, maxZoom: 16});
+map.locate({ setView: false, watch: true, maxZoom: 16 });
 
