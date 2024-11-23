@@ -119,6 +119,9 @@ function checkDangerZones(userLatLng) {
     });
 }
 
+// 初回位置取得済みフラグを追加
+var initialLocationSet = false;
+
 function onLocationFound(e) {
     // 既存の現在地マーカーを削除
     if (currentLocationMarker) {
@@ -128,6 +131,9 @@ function onLocationFound(e) {
     // 新しい現在地マーカーを追加
     currentLocationMarker = L.marker(e.latlng).addTo(map).bindPopup("あなたはここにいます").openPopup();
 
+    // 初回のみ地図のビューを設定
+    if (!initialLocationSet) { map.setView(e.latlng, 16); initialLocationSet = true;
+                              
     // 危険ゾーンのチェック
     checkDangerZones(e.latlng);
 }
@@ -143,4 +149,4 @@ function onLocationError(e) {
 map.on('locationerror', onLocationError);
 
 // 初回の位置情報を取得
-map.locate({setView: true, watch: true, maxZoom: 16});
+map.locate({ setView: false, watch: true, maxZoom: 16});
