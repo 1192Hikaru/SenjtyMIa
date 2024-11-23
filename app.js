@@ -153,3 +153,4 @@ map.on('locationerror', onLocationError);
 // 初回の位置情報を取得
 map.locate({ setView: false, watch: true, maxZoom: 16 });
 
+
