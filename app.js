@@ -322,9 +322,8 @@ var constructionLayer = L.layerGroup();
 
 // 各マーカーをレイヤーグループに追加し、カスタムアイコンを適用
 dangerZones.forEach(function(zone) {
-    var info = zone.info || ''; // infoがない場合は空文字列を設定
     var marker = L.marker([zone.lat, zone.lng], { icon: redIcon1 }).addTo(dangerLayer);
-    marker.bindPopup(`<b>${zone.name}</b><br>${zone.info}`);
+    marker.bindPopup(zone.name);
 });
 suspiciousMarkers.forEach(function(zone) {
     var info = zone.info || '';
