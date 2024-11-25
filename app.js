@@ -44,6 +44,7 @@ var AdministratorIcon = L.icon({
 });
 
 // 危険な場所のマーカーを追加
+// 交通事故の起きている場所
 var dangerZones = [
     {lat: 35.9602, lng: 139.7891, name: "地点CCCACC"},
     {lat: 35.7957822, lng: 139.7728736, name: "121"},
@@ -52,17 +53,17 @@ var dangerZones = [
     {lat: 35.7720481, lng: 139.7859405, name: "交通事故No.2"},
     {lat: 35.7865950, lng: 139.7915313, name: "交通事故No.3"}
 ];
-
+// 不審者のいる場所の情報
 var suspiciousMarkers = [
     {lat: 35.6895, lng: 139.6917, name: "不審者情報1"},
     {lat: 35.6995, lng: 139.7017, name: "不審者情報2"}
 ];
-
+// 危険性のある交通インフラ場所の情報
 var agingMarkers = [
     {lat: 35.6795, lng: 139.6817, name: "老朽化情報1"},
     {lat: 35.6695, lng: 139.6717, name: "老朽化情報2"}
 ];
-
+// 工事の情報
 var constructionMarkers = [
     {lat: 35.6595, lng: 139.6617, name: "工事情報1"},
     {lat: 35.6495, lng: 139.6517, name: "工事情報2"}
