@@ -86,17 +86,22 @@ var constructionLayer = L.layerGroup();
 
 // 各マーカーをレイヤーグループに追加し、カスタムアイコンを適用
 dangerZones.forEach(function(zone) {
+    var info = zone.info || ''; // infoがない場合は空文字列を設定
     var marker = L.marker([zone.lat, zone.lng], { icon: redIcon }).addTo(dangerLayer);
     marker.bindPopup(`<b>${zone.name}</b><br>${zone.info}`);
 });
 suspiciousMarkers.forEach(function(zone) {
+    var info = zone.info || '';
     var marker = L.marker([zone.lat, zone.lng], { icon: AdministratorIcon }).addTo(suspiciousLayer);
     marker.bindPopup(`<b>${zone.name}</b><br>${zone.info}`);
 });
-agingMarkers.forEach(function(zone) { var marker = L.marker([zone.lat, zone.lng], { icon: blueIcon }).addTo(agingLayer);
+agingMarkers.forEach(function(zone) {
+    var info = zone.info || '';
+    var marker = L.marker([zone.lat, zone.lng], { icon: blueIcon }).addTo(agingLayer);
     marker.bindPopup(`<b>${zone.name}</b><br>${zone.info}`);
 });
 constructionMarkers.forEach(function(zone) {
+    var info = zone.info || '';
     var marker = L.marker([zone.lat, zone.lng], { icon: fortificationsIcon }).addTo(constructionLayer);
     marker.bindPopup(`<b>${zone.name}</b><br>${zone.info}`);
 });
