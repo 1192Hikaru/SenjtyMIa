@@ -97,12 +97,6 @@ constructionMarkers.forEach(function(zone) {
     L.marker([zone.lat, zone.lng], { icon: fortificationsIcon }).addTo(constructionLayer).bindPopup(zone.name);
 });
 
-// すべてのレイヤーをマップに追加
-dangerLayer.addTo(map);
-suspiciousLayer.addTo(map);
-agingLayer.addTo(map);
-constructionLayer.addTo(map);
-
 // レイヤーコントロールの追加
 var overlayMaps = {
     "危険ゾーン": dangerLayer,
@@ -111,6 +105,12 @@ var overlayMaps = {
     "工事情報": constructionLayer
 };
 L.control.layers(null, overlayMaps).addTo(map);
+
+// すべてのレイヤーをマップに追加
+dangerLayer.addTo(map);
+suspiciousLayer.addTo(map);
+agingLayer.addTo(map);
+constructionLayer.addTo(map);
 
 // 現在地マーカーを保持する変数を作成
 var currentLocationMarker;
