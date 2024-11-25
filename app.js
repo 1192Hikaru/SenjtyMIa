@@ -120,19 +120,18 @@ function playSound() {
     alertSound.play();
 }
 function checkDangerZones(userLatLng) {
-            dangerZones.forEach(function(zone) {
-                var distance = map.distance(userLatLng, [zone.lat, zone.lng]);
-                if (distance < 10) { // 10メートル以内に近づいたら警告
-                    var currentTime = new Date().getTime();
-                    if (!lastAlertTime[zone.name] || (currentTime - lastAlertTime[zone.name]) > 15) { // 最終アラートから1時間(3600000)経過しているかを確認
-                        lastAlertTime[zone.name] = currentTime; // 最終アラート時間を更新
-                        playSound(); // 音楽を鳴らす
-                        alert("警告: " + zone.name + " に近づいています！");
-                    }
-                }
-            });
+    dangerZones.forEach(function(zone) {
+        var distance = map.distance(userLatLng, [zone.lat, zone.lng]);
+        if (distance < 10) { // 10メートル以内に近づいたら警告
+            var currentTime = new Date().getTime();
+            if (!lastAlertTime[zone.name] || (currentTime - lastAlertTime[zone.name]) > 15) { // 最終アラートから1時間(3600000)経過しているかを確認
+                lastAlertTime[zone.name] = currentTime; // 最終アラート時間を更新
+                playSound(); // 音楽を鳴らす
+                alert("警告: " + zone.name + " に近づいています！");
+            }
+        }
+    });
 }
-
 
 function onLocationFound(e) {
     // 既存の現在地マーカーを削除
