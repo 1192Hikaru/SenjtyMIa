@@ -54,7 +54,7 @@ var fortificationsIcon = L.icon({
 
 // 危険な場所のマーカーを追加
 var dangerZones = [
-    {lat: 35.9602, lng: 139.7891, name: "地点CCCACCA"},
+    {lat: 35.9602, lng: 139.7891, name: "地点CCCACC"},
     {lat: 35.7957822, lng: 139.7728736, name: "121"},
     {lat: 35.685034, lng: 139.736093, name: "1111"},
     {lat: 35.7455452, lng: 139.8019847, name: "交通事故No.1"},
@@ -63,7 +63,6 @@ var dangerZones = [
 ];
 
 var suspiciousMarkers = [
-    {lat: 35.9602, lng: 139.7891, name: "地点CC改"},
     {lat: 35.6895, lng: 139.6917, name: "不審者情報1"},
     {lat: 35.6995, lng: 139.7017, name: "不審者情報2"}
 ];
@@ -98,18 +97,18 @@ constructionMarkers.forEach(function(zone) {
     L.marker([zone.lat, zone.lng], { icon: fortificationsIcon }).addTo(constructionLayer).bindPopup(zone.name);
 });
 
-// レイヤーコントロールの追加
+// 初期表示するレイヤーを設定
 var overlayMaps = {
     "危険ゾーン": dangerLayer,
     "不審者情報": suspiciousLayer,
     "老朽化情報": agingLayer,
     "工事情報": constructionLayer
 };
-L.control.layers(null, overlayMaps, { collapsed: false }).addTo(map);
+var layerControl = L.control.layers(null, overlayMaps, { collapsed: false }).addTo(map);
 
-// すべてのレイヤーをマップに追加
+// すべてのレイヤーを初期表示
 dangerLayer.addTo(map);
-//suspiciousLayer.addTo(map);
+suspiciousLayer.addTo(map);
 agingLayer.addTo(map);
 constructionLayer.addTo(map);
 
@@ -121,6 +120,19 @@ var initialLocationSet = false;
 
 // アラートの最終表示時間を保持するオブジェクトを作成
 var lastAlertTime = {};
+var lastAlertTimestamp = 0;
+var alertTriggered = false;
+
+// アクティブレイヤーを取得する関数
+function getActiveLayers() {
+    var activeLayers = [];
+    map.eachLayer(function (layer) {
+        if (layer instanceof L.LayerGroup) {
+            activeLayers.push(layer);
+        }
+    });
+    return activeLayers;
+}
 
 // 音楽を再生する関数
 var alertSound = document.getElementById('alertSound');
@@ -129,20 +141,32 @@ function playSound() {
     alertSound.currentTime = 0; // 音楽を最初から再生
     alertSound.play();
 }
+
 function checkDangerZones(userLatLng) {
-    dangerZones.forEach(function(zone) {
-        var distance = map.distance(userLatLng, [zone.lat, zone.lng]);
-        if (distance < 100) { // 10メートル以内に近づいたら警告
+    alertTriggered = false;  // まずフラグをリセット
+
+    // 現在表示されているレイヤーのみチェックするためにアクティブレイヤーを取得
+    var activeLayers = getActiveLayers();
+
+    activeLayers.forEach(function(layerGroup) {
+        layerGroup.eachLayer(function(layer) {
+            var zone = layer.getLatLng();
+            var distance = map.distance(userLatLng, [zone.lat, zone.lng]);
             var currentTime = new Date().getTime();
-            if (!lastAlertTime[zone.name] || (currentTime - lastAlertTime[zone.name]) > 300000) { // 最終アラートから1時間(3600000)経過しているかを確認、これは5分
-                lastAlertTime[zone.name] = currentTime; // 最終アラート時間を更新
-                playSound(); // 音楽を鳴らす
-                alert("警告: " + zone.name + " に近づいています！");
+
+            if (distance < 100 && !alertTriggered && (currentTime - lastAlertTimestamp) > 3000) { // 3秒間隔でアラートを一度だけ鳴らす
+                if (!lastAlertTime[zone] || (currentTime - lastAlertTime[zone]) > 300000) { // 最終アラートから5分経過しているかを確認
+                    lastAlertTime[zone] = currentTime; // 最終アラート時間を更新
+                    playSound(); // 音楽を鳴らす
+                    alert("警告: " + layer.getPopup().getContent() + " に近づいています！");
+                    alertTriggered = true;  // アラートを一回だけにする
+                    lastAlertTimestamp = currentTime; // アラートのタイムスタンプを更新
+                }
             }
-        }
+        });
     });
 }
-
+//////////////////////////
 function onLocationFound(e) {
     // 既存の現在地マーカーを削除
     if (currentLocationMarker) {
