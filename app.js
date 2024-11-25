@@ -123,7 +123,7 @@ function playSound() {
 function checkDangerZones(userLatLng) {
     dangerZones.forEach(function(zone) {
         var distance = map.distance(userLatLng, [zone.lat, zone.lng]);
-        if (distance < 10) { // 10メートル以内に近づいたら警告
+        if (distance < 100) { // 100メートル以内に近づいたら警告
             playSound(); // 音楽を鳴らす
             alert("警告: " + zone.name + " に近づいています！");
         }
