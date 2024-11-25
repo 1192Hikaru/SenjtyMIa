@@ -54,7 +54,7 @@ var fortificationsIcon = L.icon({
 
 // 危険な場所のマーカーを追加
 var dangerZones = [
-    {lat: 35.9602, lng: 139.7891, name: "地点CCCACC"},
+    {lat: 35.9602, lng: 139.7891, name: "地点CCCACCA"},
     {lat: 35.7957822, lng: 139.7728736, name: "121"},
     {lat: 35.685034, lng: 139.736093, name: "1111"},
     {lat: 35.7455452, lng: 139.8019847, name: "交通事故No.1"},
