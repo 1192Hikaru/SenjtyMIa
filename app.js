@@ -42,6 +42,14 @@ var AdministratorIcon = L.icon({
     shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-shadow.png',
     shadowSize: [41, 41]// 影のサイズを指定
 });
+var fortificationsIcon = L.icon({
+    iconUrl: 'Icon/fortificationsIcon.png',
+    iconSize: [41, 41],// アイコンのサイズを指定
+    iconAnchor: [12, 41],// アイコンのアンカー位置を指定
+    popupAnchor: [1, -34],// ポップアップのアンカー位置を指定
+    shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-shadow.png',
+    shadowSize: [41, 41]// 影のサイズを指定
+});
 
 // 危険な場所のマーカーを追加
 // 交通事故の起きている場所
@@ -86,7 +94,7 @@ agingMarkers.forEach(function(zone) {
     L.marker([zone.lat, zone.lng], { icon: blueIcon }).addTo(agingLayer).bindPopup(zone.name);
 });
 constructionMarkers.forEach(function(zone) {
-    L.marker([zone.lat, zone.lng], { icon: ChartreuseIcon }).addTo(constructionLayer).bindPopup(zone.name);
+    L.marker([zone.lat, zone.lng], { icon: fortificationsIcon }).addTo(constructionLayer).bindPopup(zone.name);
 });
 
 // レイヤーコントロールの追加
