@@ -15,7 +15,7 @@ var blueIcon = L.icon({
     shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-shadow.png',
     shadowSize: [41, 41]
 });
-var Azure1 = L.icon({
+var azureIcon1 = L.icon({
     iconUrl: 'Icon/Icons-Land-Vista-Map-Markers-Map-Marker-Ball-Azure.256.png',
     iconSize: [41, 41],// アイコンのサイズを指定
     iconAnchor: [12, 41],// アイコンのアンカー位置を指定
@@ -23,7 +23,7 @@ var Azure1 = L.icon({
     shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-shadow.png',
     shadowSize: [41, 41]// 影のサイズを指定
 });
-var ChartreuseIcon1 = L.icon({
+var chartreuseIcon1 = L.icon({
     iconUrl: 'Icon/Icons-Land-Vista-Map-Markers-Map-Marker-Ball-Chartreuse.256.png',
     iconSize: [41, 41],// アイコンのサイズを指定
     iconAnchor: [12, 41],// アイコンのアンカー位置を指定
@@ -39,7 +39,7 @@ var redIcon1 = L.icon({
     shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-shadow.png',
     shadowSize: [41, 41]// 影のサイズを指定
 });
-var Azure2 = L.icon({
+var azureIcon2 = L.icon({
     iconUrl: 'Icon/Icons-Land-Vista-Map-Markers-Map-Marker-Marker-Outside-Azure.256.png',
     iconSize: [41, 41],// アイコンのサイズを指定
     iconAnchor: [12, 41],// アイコンのアンカー位置を指定
@@ -47,7 +47,7 @@ var Azure2 = L.icon({
     shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-shadow.png',
     shadowSize: [41, 41]// 影のサイズを指定
 });
-var ChartreuseIcon2 = L.icon({
+var chartreuseIcon2 = L.icon({
     iconUrl: 'Icon/Icons-Land-Vista-Map-Markers-Map-Marker-Marker-Outside-Chartreuse.256.png',
     iconSize: [41, 41],// アイコンのサイズを指定
     iconAnchor: [12, 41],// アイコンのアンカー位置を指定
@@ -332,7 +332,7 @@ suspiciousMarkers.forEach(function(zone) {
     marker.bindPopup(`<b>${zone.name}</b><br>${zone.info}`);
 });
 agingMarkers.forEach(function(zone) {
-    var marker = L.marker([zone.lat, zone.lng], { icon: Azure2 }).addTo(agingLayer);
+    var marker = L.marker([zone.lat, zone.lng], { icon: azureIcon2 }).addTo(agingLayer);
     marker.bindPopup(`<b>${zone.name}</b><br>路線名: ${zone.routeName}<br>点検年: ${zone.inspectionYear}<br>判定区分: ${zone.score}<br>措置状況: ${zone.treatmentStatus}`);
 });
 constructionMarkers.forEach(function(zone) {
