@@ -6,27 +6,9 @@
     <title>警告マップ</title>
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet-extra-markers/1.0.8/css/leaflet.extra-markers.min.css" integrity="sha512-D6nW7+xN3/QtjTybAHqJ2uZ6HeYxzKxyGp6uQGFhQa2xWn6UdHbOtMe4l4JPJHhyc2GbIl0vjs9IV7JXETbdDA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <style>
-        #map {
-            height: 600px;
-        }
-        #resetButton {
-            position: absolute;
-            bottom: 20px;
-            right:20px;
-            background-color: #ff6666;
-            color:
-            white;
-            border: none;
-            padding: 10px 20px;
-            font-size: 16px;
-            cursor: pointer;
-        }
-    </style>
 </head>
 <body>
     <div id="map" style="height: 600px;"></div>
-    <button id="resetButton">タイムスタンプをリセット</button>
     <audio id="alertSound" src="notification-10-158196.mp3" preload="auto"></audio> <!-- 音楽ファイルを指定 -->
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-extra-markers/1.0.8/js/leaflet.extra-markers.min.js" integrity="sha512-50g+peoMRdt8/FVWvQvG1sSxq8dV0LiOSLxa6JPAlKebkz8H2eDjE/q6H16Thxg1UVNl+5BbyDSAY81gIsg1OQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
