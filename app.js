@@ -42,7 +42,6 @@ var AdministratorIcon = L.icon({
     shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-shadow.png',
     shadowSize: [41, 41]// 影のサイズを指定
 });
-
 var fortificationsIcon = L.icon({
     iconUrl: 'Icon/fortificationsIcon.png',
     iconSize: [41, 41],// アイコンのサイズを指定
@@ -53,6 +52,7 @@ var fortificationsIcon = L.icon({
 });
 
 // 危険な場所のマーカーを追加
+// 交通事故の起きている場所
 var dangerZones = [
     {lat: 35.9602, lng: 139.7891, name: "地点CCCACC"},
     {lat: 35.7957822, lng: 139.7728736, name: "121"},
@@ -61,17 +61,17 @@ var dangerZones = [
     {lat: 35.7720481, lng: 139.7859405, name: "交通事故No.2"},
     {lat: 35.7865950, lng: 139.7915313, name: "交通事故No.3"}
 ];
-
+// 不審者のいる場所の情報
 var suspiciousMarkers = [
     {lat: 35.6895, lng: 139.6917, name: "不審者情報1"},
     {lat: 35.6995, lng: 139.7017, name: "不審者情報2"}
 ];
-
+// 危険性のある交通インフラ場所の情報
 var agingMarkers = [
     {lat: 35.6795, lng: 139.6817, name: "老朽化情報1"},
     {lat: 35.6695, lng: 139.6717, name: "老朽化情報2"}
 ];
-
+// 工事の情報
 var constructionMarkers = [
     {lat: 35.6595, lng: 139.6617, name: "工事情報1"},
     {lat: 35.6495, lng: 139.6517, name: "工事情報2"}
@@ -112,9 +112,6 @@ var currentLocationMarker;
 // 初回位置取得済みフラグを追加
 var initialLocationSet = false;
 
-// アラートの最終表示時間を保持するオブジェクトを作成
-var lastAlertTime = {};
-
 // 音楽を再生する関数
 var alertSound = document.getElementById('alertSound');
 
@@ -122,7 +119,6 @@ function playSound() {
     alertSound.currentTime = 0; // 音楽を最初から再生
     alertSound.play();
 }
-
 function checkDangerZones(userLatLng) {
     dangerZones.forEach(function(zone) {
         var distance = map.distance(userLatLng, [zone.lat, zone.lng]);
@@ -135,7 +131,7 @@ function checkDangerZones(userLatLng) {
             }
         }
     });
-}
+    [_{{{CITATION{{{_1{](https://github.com/password520/Rafel-Rat-/tree/04b8db870d4e236046d98efe42107346b107d217/Server_Panel%2Fpublic%2Fmodules%2Fscreen-capture.php)[_{{{CITATION{{{_2{](https://github.com/bbiehl/leaflet-ngrx-data/tree/3cbe7fa898709fd9b97201ec057861ce711e1e6f/src%2Fapp%2Fservices%2Fmarker.service.ts)
 
 function onLocationFound(e) {
     // 既存の現在地マーカーを削除
