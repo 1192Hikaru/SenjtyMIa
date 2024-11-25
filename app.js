@@ -162,7 +162,11 @@ function checkDangerZones(userLatLng) {
                 if (!lastAlertTime[zone] || (currentTime - lastAlertTime[zone]) > 300000) { // 最終アラートから5分経過しているかを確認
                     lastAlertTime[zone] = currentTime; // 最終アラート時間を更新
                     playSound(); // 音楽を鳴らす
-                    alert("警告: " + layer.getPopup().getContent() + " に近づいています！");
+                    //alert("警告: " + layer.getPopup().getContent() + " に近づいています！");
+                    // ポップアップのコンテンツから名前部分を抽出
+                    var popupContent = layer.getPopup().getContent();
+                    var name = popupContent.match(/<b>(.*?)<\/b>/)[1];
+                    alert("警告: " + name + " に近づいています！");
                     alertTriggered = true;  // アラートを一回だけにする
                     lastAlertTimestamp = currentTime; // アラートのタイムスタンプを更新
                 }
