@@ -15,6 +15,30 @@ var blueIcon = L.icon({
     shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-shadow.png',
     shadowSize: [41, 41]
 });
+var Azure1 = L.icon({
+    iconUrl: 'Icon/Icons-Land-Vista-Map-Markers-Map-Marker-Ball-Azure.256.png',
+    iconSize: [41, 41],// アイコンのサイズを指定
+    iconAnchor: [12, 41],// アイコンのアンカー位置を指定
+    popupAnchor: [1, -34],// ポップアップのアンカー位置を指定
+    shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-shadow.png',
+    shadowSize: [41, 41]// 影のサイズを指定
+});
+var ChartreuseIcon1 = L.icon({
+    iconUrl: 'Icon/Icons-Land-Vista-Map-Markers-Map-Marker-Ball-Chartreuse.256.png',
+    iconSize: [41, 41],// アイコンのサイズを指定
+    iconAnchor: [12, 41],// アイコンのアンカー位置を指定
+    popupAnchor: [1, -34],// ポップアップのアンカー位置を指定
+    shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-shadow.png',
+    shadowSize: [41, 41]// 影のサイズを指定
+});
+var redIcon1 = L.icon({
+    iconUrl: 'Icon/Icons-Land-Vista-Map-Markers-Map-Marker-Ball-Pink.256.png', // 赤いマーカーアイコンのURLを指定
+    iconSize: [41, 41],// アイコンのサイズを指定
+    iconAnchor: [12, 41],// アイコンのアンカー位置を指定
+    popupAnchor: [1, -34],// ポップアップのアンカー位置を指定
+    shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-shadow.png',
+    shadowSize: [41, 41]// 影のサイズを指定
+});
 var Azure2 = L.icon({
     iconUrl: 'Icon/Icons-Land-Vista-Map-Markers-Map-Marker-Marker-Outside-Azure.256.png',
     iconSize: [41, 41],// アイコンのサイズを指定
@@ -299,7 +323,7 @@ var constructionLayer = L.layerGroup();
 // 各マーカーをレイヤーグループに追加し、カスタムアイコンを適用
 dangerZones.forEach(function(zone) {
     var info = zone.info || ''; // infoがない場合は空文字列を設定
-    var marker = L.marker([zone.lat, zone.lng], { icon: redIcon }).addTo(dangerLayer);
+    var marker = L.marker([zone.lat, zone.lng], { icon: redIcon1 }).addTo(dangerLayer);
     marker.bindPopup(`<b>${zone.name}</b><br>${zone.info}`);
 });
 suspiciousMarkers.forEach(function(zone) {
