@@ -63,6 +63,7 @@ var dangerZones = [
 ];
 
 var suspiciousMarkers = [
+    {lat: 35.9602, lng: 139.7891, name: "地点CC改"},
     {lat: 35.6895, lng: 139.6917, name: "不審者情報1"},
     {lat: 35.6995, lng: 139.7017, name: "不審者情報2"}
 ];
@@ -108,7 +109,7 @@ L.control.layers(null, overlayMaps, { collapsed: false }).addTo(map);
 
 // すべてのレイヤーをマップに追加
 dangerLayer.addTo(map);
-suspiciousLayer.addTo(map);
+//suspiciousLayer.addTo(map);
 agingLayer.addTo(map);
 constructionLayer.addTo(map);
 
