@@ -97,6 +97,12 @@ constructionMarkers.forEach(function(zone) {
     L.marker([zone.lat, zone.lng], { icon: fortificationsIcon }).addTo(constructionLayer).bindPopup(zone.name);
 });
 
+// すべてのレイヤーをマップに追加
+dangerLayer.addTo(map);
+suspiciousLayer.addTo(map);
+agingLayer.addTo(map);
+constructionLayer.addTo(map);
+
 // レイヤーコントロールの追加
 var overlayMaps = {
     "危険ゾーン": dangerLayer,
