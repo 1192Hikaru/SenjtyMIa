@@ -54,15 +54,16 @@ var fortificationsIcon = L.icon({
 
 // 危険な場所のマーカーを追加
 var dangerZones = [
-    {lat: 35.9602, lng: 139.7891, name: "地点CCCACC"},
-    {lat: 35.7957822, lng: 139.7728736, name: "121"},
-    {lat: 35.685034, lng: 139.736093, name: "1111"},
+    {lat: 35.9602, lng: 139.7891, name: "地点CCCACC", info: "ここは交通事故が多発する地点です"},
+    {lat: 35.7957822, lng: 139.7728736, name: "121", info: "ここは急カーブがあり注意が必要です"},
+    {lat: 35.685034, lng: 139.736093, name: "1111", info: "ここは見通しの悪い交差点です"},
     {lat: 35.7455452, lng: 139.8019847, name: "交通事故No.1"},
     {lat: 35.7720481, lng: 139.7859405, name: "交通事故No.2"},
     {lat: 35.7865950, lng: 139.7915313, name: "交通事故No.3"}
 ];
 
 var suspiciousMarkers = [
+    {lat: 35.9602, lng: 139.7891, name: "地点CCO", info: "黒いフードの男がパンチラインにクリティカルヒット"},
     {lat: 35.6895, lng: 139.6917, name: "不審者情報1"},
     {lat: 35.6995, lng: 139.7017, name: "不審者情報2"}
 ];
@@ -85,16 +86,19 @@ var constructionLayer = L.layerGroup();
 
 // 各マーカーをレイヤーグループに追加し、カスタムアイコンを適用
 dangerZones.forEach(function(zone) {
-    L.marker([zone.lat, zone.lng], { icon: redIcon }).addTo(dangerLayer).bindPopup(zone.name);
+    var marker = L.marker([zone.lat, zone.lng], { icon: redIcon }).addTo(dangerLayer);
+    marker.bindPopup(`<b>${zone.name}</b><br>${zone.info}`);
 });
 suspiciousMarkers.forEach(function(zone) {
-    L.marker([zone.lat, zone.lng], { icon: AdministratorIcon }).addTo(suspiciousLayer).bindPopup(zone.name);
+    var marker = L.marker([zone.lat, zone.lng], { icon: AdministratorIcon }).addTo(suspiciousLayer);
+    marker.bindPopup(`<b>${zone.name}</b><br>${zone.info}`);
 });
-agingMarkers.forEach(function(zone) {
-    L.marker([zone.lat, zone.lng], { icon: blueIcon }).addTo(agingLayer).bindPopup(zone.name);
+agingMarkers.forEach(function(zone) { var marker = L.marker([zone.lat, zone.lng], { icon: blueIcon }).addTo(agingLayer);
+    marker.bindPopup(`<b>${zone.name}</b><br>${zone.info}`);
 });
 constructionMarkers.forEach(function(zone) {
-    L.marker([zone.lat, zone.lng], { icon: fortificationsIcon }).addTo(constructionLayer).bindPopup(zone.name);
+    var marker = L.marker([zone.lat, zone.lng], { icon: fortificationsIcon }).addTo(constructionLayer);
+    marker.bindPopup(`<b>${zone.name}</b><br>${zone.info}`);
 });
 
 // 初期表示するレイヤーを設定
