@@ -131,7 +131,7 @@ function checkDangerZones(userLatLng) {
             }
         }
     });
-    [_{{{CITATION{{{_1{](https://github.com/password520/Rafel-Rat-/tree/04b8db870d4e236046d98efe42107346b107d217/Server_Panel%2Fpublic%2Fmodules%2Fscreen-capture.php)[_{{{CITATION{{{_2{](https://github.com/bbiehl/leaflet-ngrx-data/tree/3cbe7fa898709fd9b97201ec057861ce711e1e6f/src%2Fapp%2Fservices%2Fmarker.service.ts)
+}
 
 function onLocationFound(e) {
     // 既存の現在地マーカーを削除
