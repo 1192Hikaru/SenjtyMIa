@@ -15,18 +15,24 @@ var blueIcon = L.icon({
     shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-shadow.png',
     shadowSize: [41, 41]
 });
-
-var redIcon = L.icon({
-    iconUrl: 'Icon/Icons-Land-Vista-Map-Markers-Map-Marker-Marker-Outside-Pink.256.png', // 赤いマーカーアイコンのURLを指定
+var Azure2 = L.icon({
+    iconUrl: 'Icon/Icons-Land-Vista-Map-Markers-Map-Marker-Marker-Outside-Azure.256.png',
     iconSize: [41, 41],// アイコンのサイズを指定
     iconAnchor: [12, 41],// アイコンのアンカー位置を指定
     popupAnchor: [1, -34],// ポップアップのアンカー位置を指定
     shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-shadow.png',
     shadowSize: [41, 41]// 影のサイズを指定
 });
-
-var ChartreuseIcon = L.icon({
+var ChartreuseIcon2 = L.icon({
     iconUrl: 'Icon/Icons-Land-Vista-Map-Markers-Map-Marker-Marker-Outside-Chartreuse.256.png',
+    iconSize: [41, 41],// アイコンのサイズを指定
+    iconAnchor: [12, 41],// アイコンのアンカー位置を指定
+    popupAnchor: [1, -34],// ポップアップのアンカー位置を指定
+    shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-shadow.png',
+    shadowSize: [41, 41]// 影のサイズを指定
+});
+var redIcon2 = L.icon({
+    iconUrl: 'Icon/Icons-Land-Vista-Map-Markers-Map-Marker-Marker-Outside-Pink.256.png', // 赤いマーカーアイコンのURLを指定
     iconSize: [41, 41],// アイコンのサイズを指定
     iconAnchor: [12, 41],// アイコンのアンカー位置を指定
     popupAnchor: [1, -34],// ポップアップのアンカー位置を指定
@@ -302,6 +308,14 @@ suspiciousMarkers.forEach(function(zone) {
     marker.bindPopup(`<b>${zone.name}</b><br>${zone.info}`);
 });
 agingMarkers.forEach(function(zone) {
+    var icon;
+    if (location.score === "Ⅰ") {
+        icon = Azure2;
+    } else if (location.score === "Ⅱ") {
+        icon = ChartreuseIcon2;
+    } else if (location.score === "Ⅲ") {
+        icon = redIcon2;
+    }
     var marker = L.marker([zone.lat, zone.lng], { icon: blueIcon }).addTo(agingLayer);
     marker.bindPopup(`<b>${zone.name}</b><br>路線名: ${zone.routeName}<br>点検年: ${zone.inspectionYear}<br>判定区分: ${zone.score}<br>措置状況: ${zone.treatmentStatus}`);
 });
