@@ -332,15 +332,7 @@ suspiciousMarkers.forEach(function(zone) {
     marker.bindPopup(`<b>${zone.name}</b><br>${zone.info}`);
 });
 agingMarkers.forEach(function(zone) {
-    var icon;
-    if (location.score === "Ⅰ") {
-        icon = Azure2;
-    } else if (location.score === "Ⅱ") {
-        icon = ChartreuseIcon2;
-    } else if (location.score === "Ⅲ") {
-        icon = redIcon2;
-    }
-    var marker = L.marker([zone.lat, zone.lng], { icon: icon }).addTo(agingLayer);
+    var marker = L.marker([zone.lat, zone.lng], { icon: Azure2 }).addTo(agingLayer);
     marker.bindPopup(`<b>${zone.name}</b><br>路線名: ${zone.routeName}<br>点検年: ${zone.inspectionYear}<br>判定区分: ${zone.score}<br>措置状況: ${zone.treatmentStatus}`);
 });
 constructionMarkers.forEach(function(zone) {
