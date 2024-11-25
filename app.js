@@ -104,7 +104,7 @@ var overlayMaps = {
     "老朽化情報": agingLayer,
     "工事情報": constructionLayer
 };
-L.control.layers(null, overlayMaps).addTo(map);
+L.control.layers(null, overlayMaps, { collapsed: false }).addTo(map);
 
 // すべてのレイヤーをマップに追加
 dangerLayer.addTo(map);
