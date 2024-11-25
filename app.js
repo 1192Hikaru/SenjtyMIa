@@ -414,7 +414,7 @@ function checkDangerZones(userLatLng) {
         });
     });
 }
-//////////////////////////
+
 function onLocationFound(e) {
     // 既存の現在地マーカーを削除
     if (currentLocationMarker) {
