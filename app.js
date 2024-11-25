@@ -127,7 +127,7 @@ function checkDangerZones(userLatLng) {
         var distance = map.distance(userLatLng, [zone.lat, zone.lng]);
         if (distance < 100) { // 10メートル以内に近づいたら警告
             var currentTime = new Date().getTime();
-            if (!lastAlertTime[zone.name] || (currentTime - lastAlertTime[zone.name]) > 3600) { // 最終アラートから1時間(3600000)経過しているかを確認
+            if (!lastAlertTime[zone.name] || (currentTime - lastAlertTime[zone.name]) > 300000) { // 最終アラートから1時間(3600000)経過しているかを確認、これは5分
                 lastAlertTime[zone.name] = currentTime; // 最終アラート時間を更新
                 playSound(); // 音楽を鳴らす
                 alert("警告: " + zone.name + " に近づいています！");
