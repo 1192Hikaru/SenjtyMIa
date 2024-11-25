@@ -309,11 +309,11 @@ suspiciousMarkers.forEach(function(zone) {
 });
 agingMarkers.forEach(function(zone) {
     var icon;
-    if (location.score === "Ⅰ") {
+    if (zone.score === "Ⅰ") {
         icon = Azure2;
-    } else if (location.score === "Ⅱ") {
+    } else if (zone.score === "Ⅱ") {
         icon = ChartreuseIcon2;
-    } else if (location.score === "Ⅲ") {
+    } else if (zone.score === "Ⅲ") {
         icon = redIcon2;
     }
     var marker = L.marker([zone.lat, zone.lng], { icon: icon }).addTo(agingLayer);
