@@ -47,7 +47,6 @@ function showTabContent(tabId) {
     document.getElementById(tabId).classList.add('active');
 }
 
-
 // カスタムアイコンの作成
 var blueIcon = L.icon({
     iconUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon.png',
