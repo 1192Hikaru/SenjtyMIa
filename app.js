@@ -15,7 +15,7 @@ var customControl = L.Control.extend({
         var container = L.DomUtil.create('div', 'leaflet-bar leaflet-control leaflet-control-custom');
 
         var gearBtn = L.DomUtil.create('button', 'leaflet-control-custom', container);
-        gearBtn.innerHTML = '⚙️';  // 歯車アイコンを表示
+        gearBtn.innerHTML = '⚙️';// 歯車アイコンを表示
         L.DomEvent.on(gearBtn, 'click', function() {
             var controls = document.getElementById('custom-controls');
             controls.style.display = controls.style.display === 'none' ? 'block' : 'none';
@@ -49,12 +49,6 @@ function showTabContent(tabId) {
     });
     document.getElementById(tabId).classList.add('active');
 }
-
-// タブを閉じる関数
-function closeTab(tabId) {
-    document.getElementById(tabId).classList.remove('active');
-}
-
 
 
 // カスタムアイコンの作成
@@ -327,5 +321,6 @@ document.getElementById('resetButton').addEventListener('click', function() {
 
 // 初回の位置情報を取得
 map.locate({ setView: false, watch: true, maxZoom: 16 });
+
 
 
