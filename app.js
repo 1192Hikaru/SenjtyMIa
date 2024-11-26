@@ -337,12 +337,10 @@ var agingMarkers = [
 
 
 var constructionMarkers = [
-    {lat: 35.6595, lng: 139.6617, name: "工事情報1"},
-    {lat: 35.6495, lng: 139.6517, name: "工事情報2"},
-
-    
-    {lat: 35.9602, lng: 139.7891, name: "地点CCC改"},
-    {lat: 35.748258, lng: 139.807142, name: "55"},
+    {lat: 35.6595, lng: 139.6617, name: "工事情報1",date:"-",time: "-",details: "-"},
+    {lat: 35.6495, lng: 139.6517, name: "工事情報2",date:"-",time: "-",details: "-"},
+    {lat: 35.9602, lng: 139.7891, name: "地点CCC改",date:"-",time: "-",details: "-"},
+    {lat: 35.748258, lng: 139.807142, name: "工事現場demo",date:"2024年2月～2024年10月",time: "9:00～18:00",details: "道路工事"},
 ];
 
 // レイヤーグループの作成
