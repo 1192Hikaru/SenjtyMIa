@@ -45,6 +45,22 @@
             font-size: 14px;
             cursor: pointer;
         }
+        .tab-content {
+            display: none;
+            position: absolute;
+            top: 60px;
+            right: 10px;
+            width: 300px;
+            height: 400px;
+            background: white;
+            border: 1px solid #ccc;
+            z-index: 2000;
+            padding: 10px;
+            overflow-y: auto;
+        }
+        .tab-content.active {
+            display: block;
+        }
     </style>
 </head>
 <body>
@@ -54,12 +70,26 @@
         <button id="terms-btn">用語解説</button>
         <button id="reset-timestamp-btn">タイムスタンプリセット</button>
     </div>
+    <div id="reference-content" class="tab-content">
+        <h2>参照元</h2>
+        <ul>
+            <li><a href="https://leafletjs.com" target="_blank">Leaflet</a></li>
+            <li><a href="https://cdnjs.com/" target="_blank">CDNJS</a></li>
+        </ul>
+    </div>
+    <div id="terms-content" class="tab-content">
+        <h2>用語解説</h2>
+        <p>1. マーカー: 地図上に表示するピン。</p>
+        <p>2. レイヤー: 地図上の異なる情報層。</p>
+        <p>3. タイル: 地図画像を構成する個別の画像。</p>
+    </div>
     <audio id="alertSound" src="notification-10-158196.mp3" preload="auto"></audio>
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-extra-markers/1.0.8/js/leaflet.extra-markers.min.js" integrity="sha512-50g+peoMRdt8/FVWvQvG1sSxq8dV0LiOSLxa6JPAlKebkz8H2eDjE/q6H16Thxg1UVNl+5BbyDSAY81gIsg1OQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="app.js"></script>
 </body>
 </html>
+
 
 
 
