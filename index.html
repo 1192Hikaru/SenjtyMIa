@@ -10,41 +10,23 @@
         #map {
             height: 600px;
         }
-        .leaflet-control-custom {
-            background-color: white;
-            background-size: 24px 24px;
-            background-repeat: no-repeat;
-            background-position: center;
-            width: 34px;
-            height: 34px;
-            cursor: pointer;
-            margin-bottom: 10px;
-            border-radius: 4px;
-            border: none;
-            outline: none;
-            text-align: center;
-            line-height: 34px;
-            font-size: 14px;
-        }
-        #custom-controls {
+        #resetButton {
             position: absolute;
-            top: 10px;
-            right: 10px;
-            z-index: 1000;
-            display: flex;
-            flex-direction: column;
-            gap: 5px;
+            bottom: 20px;
+            right: 20px;
+            background-color: #ff6666;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
         }
     </style>
 </head>
 <body>
     <div id="map"></div>
-    <div id="custom-controls">
-        <button id="reference-btn" class="leaflet-control-custom">参照元</button>
-        <button id="terms-btn" class="leaflet-control-custom">用語説明</button>
-        <button id="reset-timestamp-btn" class="leaflet-control-custom">タイムスタンプリセット</button>
-    </div>
-    <audio id="alertSound" src="notification-10-158196.mp3" preload="auto"></audio>
+    <button id="resetButton">タイムスタンプをリセット</button>
+    <audio id="alertSound" src="notification-10-158196.mp3" preload="auto"></audio> <!-- 音楽ファイルを指定 -->
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-extra-markers/1.0.8/js/leaflet.extra-markers.min.js" integrity="sha512-50g+peoMRdt8/FVWvQvG1sSxq8dV0LiOSLxa6JPAlKebkz8H2eDjE/q6H16Thxg1UVNl+5BbyDSAY81gIsg1OQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="app.js"></script>
