@@ -10,33 +10,82 @@
         #map {
             height: 600px;
         }
-        #resetButton {
-            position: absolute;
-            bottom: 20px;
-            right: 20px;
-            background-color: #ff6666;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            font-size: 16px;
+        .leaflet-control-custom {
+            background-color: white;
+            background-size: 24px 24px;
+            background-repeat: no-repeat;
+            background-position: center;
+            width: 34px;
+            height: 34px;
             cursor: pointer;
+            margin-bottom: 10px;
+            border-radius: 4px;
+            border: none;
+            outline: none;
+            text-align: center;
+            line-height: 34px;
+            font-size: 14px;
+        }
+        #custom-controls {
+            display: none;
+            position: absolute;
+            top: 50px;
+            right: 50px;
+            z-index: 1000;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 4px;
+            padding: 10px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+        }
+        #custom-controls button {
+            display: block;
+            width: 100%;
+            margin: 5px 0;
+            padding: 8px 10px;
+            font-size: 14px;
+            cursor: pointer;
+        }
+        .tab-content {
+            display: none;
+            position: absolute;
+            top: 60px;
+            right: 10px;
+            width: 300px;
+            height: 400px;
+            background: white;
+            border: 1px solid #ccc;
+            z-index: 2000;
+            padding: 10px;
+            overflow-y: auto;
+        }
+        .tab-content.active {
+            display: block;
         }
     </style>
 </head>
 <body>
     <div id="map"></div>
-    <button id="resetButton">タイムスタンプをリセット</button>
-    <audio id="alertSound" src="notification-10-158196.mp3" preload="auto"></audio> <!-- 音楽ファイルを指定 -->
+    <div id="custom-controls">
+        <button id="reference-btn">参照元</button>
+        <button id="terms-btn">用語解説</button>
+        <button id="reset-timestamp-btn">タイムスタンプリセット</button>
+    </div>
+    <div id="reference-content" class="tab-content">
+        <h2>参照元</h2>
+        <ul>
+            <li><a href="https://leafletjs.com" target="_blank">Leaflet</a></li>
+            <li><a href="https://cdnjs.com/" target="_blank">CDNJS</a></li>
+        </ul>
+    </div>
+    <div id="terms-content" class="tab-content">
+        <h2>用語解説</h2>
+        <p>1. マーカー: 地図上に表示するピン。</p>
+        <p>2. レイヤー: 地図上の異なる情報層。</p>
+        <p>3. タイル: 地図画像を構成する個別の画像。</p>
+    </div>
+    <audio id="alertSound" src="notification-10-158196.mp3" preload="auto"></audio>
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-extra-markers/1.0.8/js/leaflet.extra-markers.min.js" integrity="sha512-50g+peoMRdt8/FVWvQvG1sSxq8dV0LiOSLxa6JPAlKebkz8H2eDjE/q6H16Thxg1UVNl+5BbyDSAY81gIsg1OQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="app.js"></script>
 </body>
 </html>
-
-
-
-
-
-
-
-
