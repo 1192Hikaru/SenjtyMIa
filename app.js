@@ -111,9 +111,10 @@ var dangerZones = [
 ];
 
 var suspiciousMarkers = [
-    {lat: 35.9602, lng: 139.7891, name: "地点CCOC", info: "黒いフードの男がパンチラインにクリティカルヒット"},
-    {lat: 35.6895, lng: 139.6917, name: "不審者情報1"},
-    {lat: 35.6995, lng: 139.7017, name: "不審者情報2"}
+    {lat: 35.9602, lng: 139.7891, name: "不審者情報1", info: "これはデモデータです",feature:"-"},
+    {lat: 35.6895, lng: 139.6917, name: "不審者情報2", info: "これはデモデータです",feature:"-"},
+    {lat: 35.6995, lng: 139.7017, name: "不審者情報3", info: "これはデモデータです",feature:"-"},
+    {lat: 35.747966, lng: 139.806220, name: "不審者情報4demo",info: "2024年10月25日(金)、午後3時00分ころ、足立区千住旭町の路上で、小学生（女の子）が下校途中、男につきまとわれました。",feature:"年齢20代から30代、身長160センチメートルくらい、体格やせ型、黒色のパーカー、黒色のカバン"},
 ];
 
 var agingMarkers = [
@@ -126,8 +127,213 @@ var agingMarkers = [
         score: "Ⅰ",
         treatmentStatus: "－"
     },
-    {lat: 35.9602, lng: 139.7891, name: "地点CCC改"},
+    {
+        lat: 35.745,
+        lng: 139.79639,
+        name: "河原町歩道橋",
+        routeName: "吾妻橋伊興町線(都道461号線)",
+        inspectionYear: 2020,
+        score: "Ⅱ",
+        treatmentStatus: "予防保全段階"
+    },
+    {
+        lat: 35.75496,
+        lng: 139.80139,
+        name: "千住大川町歩道橋",
+        routeName: "国道4号",
+        inspectionYear: 2019,
+        score: "Ⅱ",
+        treatmentStatus: "予防保全段階"
+    },
+    {
+        lat: 35.75704,
+        lng: 139.80187,
+        name: "千住新橋（右岸下り）",
+        routeName: "国道4号",
+        inspectionYear: 2018,
+        score: "Ⅲ",
+        treatmentStatus: "措置着手済み"
+    },
+    {
+        lat: 35.75682,
+        lng: 139.80251,
+        name: "千住新橋（右岸上り）",
+        routeName: "国道4号",
+        inspectionYear: 2020,
+        score: "Ⅱ",
+        treatmentStatus: "予防保全段階"
+    },
+    {
+        lat: 35.7501,
+        lng: 139.80429,
+        name: "北千住駅西口ペデストリアンデッキ",
+        routeName: "足立47",
+        inspectionYear: 2019,
+        score: "Ⅱ",
+        treatmentStatus: "予防保全段階"
+    },
+    {
+        lat: 35.74657,
+        lng: 139.80385,
+        name: "北千住駅構内跨線人道橋",
+        routeName: "千住東343",
+        inspectionYear: 2022,
+        score: "Ⅱ",
+        treatmentStatus: "予防保全段階"
+    },
+    {
+        lat: 35.74333,
+        lng: 139.80528,
+        name: "東町歩道橋",
+        routeName: "吾妻橋伊興町線(都道461号線)",
+        inspectionYear: 2020,
+        score: "Ⅱ",
+        treatmentStatus: "予防保全段階"
+    },
+    {
+        lat: 35.74417,
+        lng: 139.81111,
+        name: "関屋歩道橋",
+        routeName: "吾妻橋伊興町線(都道461号線)",
+        inspectionYear: 2020,
+        score: "Ⅱ",
+        treatmentStatus: "予防保全段階"
+    },
+    {
+        lat: 35.74278,
+        lng: 139.81333,
+        name: "千住曙町歩道橋",
+        routeName: "言問大谷田線(都道314号線)",
+        inspectionYear: 2020,
+        score: "Ⅱ",
+        treatmentStatus: "予防保全段階"
+    },
+    {
+        lat: 35.74284,
+        lng: 139.81794,
+        name: "堀切駅跨線人道橋",
+        routeName: "-",
+        inspectionYear: 2022,
+        score: "Ⅲ",
+        treatmentStatus: "措置未着手"
+    },
+    {
+        lat: 35.74501,
+        lng: 139.79805,
+        name: "案内標識",
+        routeName: "一般国道 4 号",
+        inspectionYear: 2022,
+        score: "Ⅱ",
+        treatmentStatus: "予防保全段階"
+    },
+    {
+        lat: 35.7438,
+        lng: 139.79751,
+        name: "案内標識",
+        routeName: "一般国道 4 号",
+        inspectionYear: 2022,
+        score: "Ⅱ",
+        treatmentStatus: "予防保全段階"
+    },
+    {
+        lat: 35.74358,
+        lng: 139.80083,
+        name: "道路標識",
+        routeName: "都道461号線",
+        inspectionYear: 2021,
+        score: "Ⅱ",
+        treatmentStatus: "予防保全段階"
+    },
+    {
+        lat: 35.75,
+        lng: 139.79083,
+        name: "尾竹橋",
+        routeName: "上野尾竹橋線(都道313号線)",
+        inspectionYear: 2019,
+        score: "Ⅱ",
+        treatmentStatus: "予防保全段階"
+    },
+    {
+        lat: 35.75636,
+        lng: 139.80176,
+        name: "千住新橋右岸（下り）",
+        routeName: "国道4号",
+        inspectionYear: 2019,
+        score: "Ⅱ",
+        treatmentStatus: "予防保全段階"
+    },
+    {
+        lat: 35.75598,
+        lng: 139.80184,
+        name: "千住新橋右岸（上り）",
+        routeName: "国道4号",
+        inspectionYear: 2018,
+        score: "Ⅱ",
+        treatmentStatus: "予防保全段階"
+    },
+    {
+        lat: 35.73909,
+        lng: 139.79722,
+        name: "千住大橋（下）",
+        routeName: "国道4号",
+        inspectionYear: 2018,
+        score: "Ⅲ",
+        treatmentStatus: "措置着手済み"
+    },
+    {
+        lat: 35.73899,
+        lng: 139.79753,
+        name: "千住大橋（ランプ）",
+        routeName: "国道4号",
+        inspectionYear: 2021,
+        score: "Ⅱ",
+        treatmentStatus: "予防保全段階"
+    },
+    {
+        lat: 35.74323,
+        lng: 139.8026,
+        name: "やっちゃば人道橋",
+        routeName: "千住東350",
+        inspectionYear: 2019,
+        score: "Ⅱ",
+        treatmentStatus: "予防保全段階"
+    },
+    {
+        lat: 35.74403,
+        lng: 139.81445,
+        name: "堀切橋",
+        routeName: "言問大谷田線(都道314号線)",
+        inspectionYear: 2019,
+        score: "Ⅱ",
+        treatmentStatus: "予防保全段階"
+    },
+    {
+        lat: 35.74028,
+        lng: 139.81194,
+        name: "千住汐入大橋",
+        routeName: "言問大谷田線(都道314号線)",
+        inspectionYear: 2019,
+        score: "Ⅱ",
+        treatmentStatus: "予防保全段階"
+    },
+    {
+        lat: 35.74266,
+        lng: 139.81795,
+        name: "堀切２号橋",
+        routeName: "ー",
+        inspectionYear: 2022,
+        score: "Ⅱ",
+        treatmentStatus: "予防保全段階"
+    },
+    {
+        lat: 35.748715,
+        lng: 139.805930,
+        name: "22",routeName: "東京都足立区千住旭町5",
+        inspectionYear: 2022,
+        score: "Ⅱ「demo」",
+        treatmentStatus: "予防保全段階「demo」"},
 ];
+
 
 
 var constructionMarkers = [
@@ -136,6 +342,7 @@ var constructionMarkers = [
 
     
     {lat: 35.9602, lng: 139.7891, name: "地点CCC改"},
+    {lat: 35.748258, lng: 139.807142, name: "55"},
 ];
 
 // レイヤーグループの作成
@@ -152,7 +359,7 @@ dangerZones.forEach(function(zone) {
 suspiciousMarkers.forEach(function(zone) {
     var info = zone.info || '';
     var marker = L.marker([zone.lat, zone.lng], { icon: AdministratorIcon }).addTo(suspiciousLayer);
-    marker.bindPopup(`<b>${zone.name}</b><br>${zone.info}`);
+    marker.bindPopup(`<b>${zone.name}</b><br>情報: ${zone.info}<br>特徴: ${zone.feature}`);
 });
 agingMarkers.forEach(function(zone) {
     var marker = L.marker([zone.lat, zone.lng], { icon: azureIcon2 }).addTo(agingLayer);
