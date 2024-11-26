@@ -15,7 +15,7 @@ var customControl = L.Control.extend({
         var container = L.DomUtil.create('div', 'leaflet-bar leaflet-control leaflet-control-custom');
 
         var gearBtn = L.DomUtil.create('button', 'leaflet-control-custom', container);
-        gearBtn.innerHTML = '⚙️';//　歯車アイコンを表示
+        gearBtn.innerHTML = '⚙️';// 歯車アイコンを表示
         L.DomEvent.on(gearBtn, 'click', function() {
             var controls = document.getElementById('custom-controls');
             controls.style.display = controls.style.display === 'none' ? 'block' : 'none';
@@ -29,17 +29,27 @@ map.addControl(new customControl());
 
 // カスタムボタンのイベントリスナー追加
 document.getElementById('reference-btn').addEventListener('click', function() {
-    window.open('https://leafletjs.com', '_blank');
+    showTabContent('reference-content');
 });
 
 document.getElementById('terms-btn').addEventListener('click', function() {
-    window.open('https://example.com/terms', '_blank');
+    showTabContent('terms-content');
 });
 
 document.getElementById('reset-timestamp-btn').addEventListener('click', function() {
     lastAlertTimestamp = 0;
     alert('タイムスタンプをリセットしました。');
 });
+
+// タブの内容を表示する関数
+function showTabContent(tabId) {
+    var tabContents = document.querySelectorAll('.tab-content');
+    tabContents.forEach(function(content) {
+        content.classList.remove('active');
+    });
+    document.getElementById(tabId).classList.add('active');
+}
+
 
 // カスタムアイコンの作成
 var blueIcon = L.icon({
