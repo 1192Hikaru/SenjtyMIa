@@ -37,6 +37,11 @@ var customControl = L.Control.extend({
     }
 });
 map.addControl(new customControl());
+// タイムスタンプをリセットボタンの機能追加
+document.getElementById('resetButton').addEventListener('click', function() {
+    lastAlertTimestamp = 0;
+    alert('タイムスタンプをリセットしました。');
+});
 
 
 // カスタムアイコンの作成
