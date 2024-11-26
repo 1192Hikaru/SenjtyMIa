@@ -114,12 +114,16 @@ var agingMarkers = [
         score: "Ⅰ",
         treatmentStatus: "－"
     },
+    {lat: 35.9602, lng: 139.7891, name: "地点CCC改"},
 ];
 
 
 var constructionMarkers = [
     {lat: 35.6595, lng: 139.6617, name: "工事情報1"},
-    {lat: 35.6495, lng: 139.6517, name: "工事情報2"}
+    {lat: 35.6495, lng: 139.6517, name: "工事情報2"},
+
+    
+    {lat: 35.9602, lng: 139.7891, name: "地点CCC改"},
 ];
 
 // レイヤーグループの作成
