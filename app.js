@@ -6,44 +6,6 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 }).addTo(map);
 
-// カスタムボタンの追加
-var customControl = L.Control.extend({
-    options: {
-        position: 'topright'
-    },
-    onAdd: function () {
-        var container = L.DomUtil.create('div', 'leaflet-bar leaflet-control leaflet-control-custom');
-
-        var referenceBtn = L.DomUtil.create('button', '', container);
-        referenceBtn.innerHTML = '参照元';
-        L.DomEvent.on(referenceBtn, 'click', function() {
-            alert('使用したコードの参照元:\n1. Leaflet https://leafletjs.com\n2. アイコンサイト example.com');
-        });
-
-        var termsBtn = L.DomUtil.create('button', '', container);
-        termsBtn.innerHTML = '用語説明';
-        L.DomEvent.on(termsBtn, 'click', function() {
-            alert('用語説明:\n1. マーカー: 地図上に表示するピン。\n2. レイヤー: 地図上の異なる情報層。\n3. タイル: 地図画像を構成する個別の画像。');
-        });
-
-        var resetTimestampBtn = L.DomUtil.create('button', '', container);
-        resetTimestampBtn.innerHTML = 'タイムスタンプリセット';
-        L.DomEvent.on(resetTimestampBtn, 'click', function() {
-            lastAlertTimestamp = 0;
-            alert('タイムスタンプをリセットしました。');
-        });
-
-        return container;
-    }
-});
-map.addControl(new customControl());
-// タイムスタンプをリセットボタンの機能追加
-document.getElementById('resetButton').addEventListener('click', function() {
-    lastAlertTimestamp = 0;
-    alert('タイムスタンプをリセットしました。');
-});
-
-
 // カスタムアイコンの作成
 var blueIcon = L.icon({
     iconUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon.png',
