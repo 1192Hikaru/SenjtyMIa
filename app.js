@@ -366,7 +366,7 @@ agingMarkers.forEach(function(zone) {
 constructionMarkers.forEach(function(zone) {
     var info = zone.info || '';
     var marker = L.marker([zone.lat, zone.lng], { icon: fortificationsIcon }).addTo(constructionLayer);
-    marker.bindPopup(`<b>${zone.name}</b><br>${zone.info}`);
+    marker.bindPopup(`<b>${zone.name}</b><br>工事期間: ${zone.date}<br>工事予定時間: ${zone.time}<br>工事目的: ${zone.details}`);
 });
 
 // 初期表示するレイヤーを設定
