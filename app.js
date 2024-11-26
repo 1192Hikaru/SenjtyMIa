@@ -6,6 +6,41 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 }).addTo(map);
 
+// カスタムボタンの追加
+var customControl = L.Control.extend({
+    options: {
+        position: 'topright'
+    },
+    onAdd: function () {
+        var container = L.DomUtil.create('div', 'leaflet-bar leaflet-control leaflet-control-custom');
+
+        var gearBtn = L.DomUtil.create('button', 'leaflet-control-custom', container);
+        gearBtn.innerHTML = '⚙️';//　歯車アイコンを表示
+        L.DomEvent.on(gearBtn, 'click', function() {
+            var controls = document.getElementById('custom-controls');
+            controls.style.display = controls.style.display === 'none' ? 'block' : 'none';
+        });
+
+        return container;
+    }
+});
+
+map.addControl(new customControl());
+
+// カスタムボタンのイベントリスナー追加
+document.getElementById('reference-btn').addEventListener('click', function() {
+    window.open('https://leafletjs.com', '_blank');
+});
+
+document.getElementById('terms-btn').addEventListener('click', function() {
+    window.open('https://example.com/terms', '_blank');
+});
+
+document.getElementById('reset-timestamp-btn').addEventListener('click', function() {
+    lastAlertTimestamp = 0;
+    alert('タイムスタンプをリセットしました。');
+});
+
 // カスタムアイコンの作成
 var blueIcon = L.icon({
     iconUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon.png',
