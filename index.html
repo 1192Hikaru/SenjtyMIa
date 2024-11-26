@@ -61,21 +61,6 @@
         .tab-content.active {
             display: block;
         }
-        .close-btn {
-            position: absolute;
-            top: 5px;
-            right: 20px;
-            background: #ff6666;
-            color: white;
-            border: none;
-            border-radius: 12px;
-            width: 24px;
-            height: 24px;
-            cursor: pointer;
-            text-align: center;
-            line-height: 24px;
-            font-size: 16px;
-        }
     </style>
 </head>
 <body>
@@ -86,7 +71,6 @@
         <button id="reset-timestamp-btn">タイムスタンプリセット</button>
     </div>
     <div id="reference-content" class="tab-content">
-        <button class="close-btn" style="right: 20px;" onclick="closeTab('reference-content')">✖️</button>
         <h2>参照元</h2>
         <ul>
             <li><a href="https://leafletjs.com" target="_blank">Leaflet</a></li>
@@ -94,7 +78,6 @@
         </ul>
     </div>
     <div id="terms-content" class="tab-content">
-        <button class="close-btn" style="right: 20px;" onclick="closeTab('terms-content')">✖️</button>
         <h2>用語解説</h2>
         <p>1. マーカー: 地図上に表示するピン。</p>
         <p>2. レイヤー: 地図上の異なる情報層。</p>
