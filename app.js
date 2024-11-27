@@ -383,7 +383,7 @@ var overlayMaps = {
     "不審者情報": suspiciousLayer,
     "老朽化情報": agingLayer,
     "工事情報": constructionLayer,
-    "未発生危険地帯": undevelopedDangerLayer
+    "交通事故警戒地帯": undevelopedDangerLayer
 };
 var layerControl = L.control.layers(null, overlayMaps, { collapsed: false }).addTo(map);
 
