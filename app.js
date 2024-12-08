@@ -84,8 +84,6 @@ var fortificationsIcon = L.icon({
 
 // 危険な場所のマーカーを追加
 var dangerZones = [
-    {lat: 35.9602, lng: 139.7891, name: "地点CCC改"},
-    
     {lat: 35.7957822, lng: 139.7728736, name: "121"},
    
     {lat: 35.685034, lng: 139.736093, name: "1111"},
@@ -115,7 +113,7 @@ var undevelopedDangerZones = [
 ];
 
 var suspiciousMarkers = [
-    {lat: 35.9602, lng: 139.7891, name: "不審者情報1", info: "これはデモデータです",feature:"-"},
+    {lat: 35.9602, lng: 139.7891, name: "ブロリー", info: "サイヤ人の数少ない生き残りの1人。赤ん坊の頃、その戦闘力の高さゆえに将来的に自分や息子ベジータの地位が脅かされるのではないかと危険を感じたベジータ王によって父親のパラガスと共に謀殺されそうになり、父親のパラガスもろとも瀕死の重傷を負わされる。しかしフリーザの一撃で惑星ベジータが破壊された時に潜在能力が覚醒し消滅から密かに逃げ延びた。",feature:"身長は悟空よりも高く、上半身裸で金色のベルトと、その下に赤い布を腰に巻くように付け、白い胴着を下半身に着ている。首にはベルトに似た首飾りを下げ、手首にはベルトとデザインが同じ長めのブレスレットを装着。靴もベルトとデザインが同じで、耳には輪状のイヤリングをしている。"},
     {lat: 35.6895, lng: 139.6917, name: "不審者情報2", info: "これはデモデータです",feature:"-"},
     {lat: 35.6995, lng: 139.7017, name: "不審者情報3", info: "これはデモデータです",feature:"-"},
     {lat: 35.747966, lng: 139.806220, name: "不審者情報4demo",info: "2024年10月25日(金)、午後3時00分ころ、足立区千住旭町の路上で、小学生（女の子）が下校途中、男につきまとわれました。",feature:"年齢20代から30代、身長160センチメートルくらい、体格やせ型、黒色のパーカー、黒色のカバン"},
@@ -341,7 +339,6 @@ var agingMarkers = [
 var constructionMarkers = [
     {lat: 35.6595, lng: 139.6617, name: "工事情報1",date:"-",time: "-",details: "-"},
     {lat: 35.6495, lng: 139.6517, name: "工事情報2",date:"-",time: "-",details: "-"},
-    {lat: 35.9602, lng: 139.7891, name: "地点CCC改",date:"-",time: "-",details: "-"},
     {lat: 35.748258, lng: 139.807142, name: "工事現場demo",date:"2024年2月～2025年10月",time: "9:00～18:00",details: "道路工事"},
 ];
 
@@ -436,7 +433,7 @@ function checkDangerZones(userLatLng) {
             var distance = map.distance(userLatLng, [zone.lat, zone.lng]);
             var currentTime = new Date().getTime();
 
-            if (distance < 10 && !alertTriggered && (currentTime - lastAlertTimestamp) > 3000) { // 距離が10m以内かつ　3秒間隔でアラートを一度だけ鳴らす
+            if (distance < 100 && !alertTriggered && (currentTime - lastAlertTimestamp) > 3000) { // 距離が10m以内かつ　3秒間隔でアラートを一度だけ鳴らす
                 if (!lastAlertTime[zone] || (currentTime - lastAlertTime[zone]) > 3600000) { // 最終アラートから5分(300000 ms)経過しているかを確認 1時間は3600000 ms
                     lastAlertTime[zone] = currentTime; // 最終アラート時間を更新
                     playSound(); // 音楽を鳴らす
