@@ -433,7 +433,7 @@ function checkDangerZones(userLatLng) {
             var distance = map.distance(userLatLng, [zone.lat, zone.lng]);
             var currentTime = new Date().getTime();
 
-            if (distance < 100 && !alertTriggered && (currentTime - lastAlertTimestamp) > 3000) { // 距離が10m以内かつ　3秒間隔でアラートを一度だけ鳴らす
+            if (distance < 10 && !alertTriggered && (currentTime - lastAlertTimestamp) > 3000) { // 距離が10m以内かつ　3秒間隔でアラートを一度だけ鳴らす
                 if (!lastAlertTime[zone] || (currentTime - lastAlertTime[zone]) > 3600000) { // 最終アラートから5分(300000 ms)経過しているかを確認 1時間は3600000 ms
                     lastAlertTime[zone] = currentTime; // 最終アラート時間を更新
                     playSound(); // 音楽を鳴らす
