@@ -451,7 +451,7 @@ function checkDangerZones(userLatLng) {
 }
 
 function onLocationFound(e) {
-    const fixedLatLng = { lat: 35.747936, lng: 139.806729 };
+    const fixedLatLng = { lat: 35.748740, lng: 139.806729 };
     // 既存の現在地マーカーを削除
     if (currentLocationMarker) {
         map.removeLayer(currentLocationMarker);
