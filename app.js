@@ -451,42 +451,30 @@ function checkDangerZones(userLatLng) {
 }
 
 function onLocationFound(e) {
-    const fixedLatLng = { lat: 35.748740, lng: 139.806729 };
     // 既存の現在地マーカーを削除
-    if (currentLocationMarker) {
+    if (currentLocationMarker){
         map.removeLayer(currentLocationMarker);
     }
-
-    // 新しい現在地マーカーを追加
-    currentLocationMarker = L.marker(fixedLatLng).addTo(map);
-
+    //新しい現在地マーカーを追加
+    currentLocationMarker = L.marker(e.latlng).addTo(map);
     // 初回のみポップアップを表示
     if (!initialLocationSet) {
         currentLocationMarker.bindPopup("あなたはここにいます").openPopup();
-        map.setView(fixedLatLng, 16);
+        map.setView(e.latlng, 16);
         initialLocationSet = true;
     }
-
     // 危険ゾーンのチェック
-    checkDangerZones(fixedLatLng);
+    checkDangerZones(e.latlng);
 }
-
 // 初回の位置情報取得時にも危険ゾーンをチェック
 map.on('locationfound', onLocationFound);
-
 // エラーハンドリング
 function onLocationError(e) {
     alert(e.message);
-}
-
-map.on('locationerror', onLocationError);
-
+} map.on('locationerror', onLocationError);
 // タイムスタンプをリセットするボタンのイベントリスナーを追加
 document.getElementById('resetButton').addEventListener('click', function() {
-    lastAlertTime = {};
-    alert("タイムスタンプがリセットされました。");
-});
-
+    lastAlertTime = {}; alert("タイムスタンプがリセットされました。"); });
 // 初回の位置情報を取得
 map.locate({ setView: false, watch: true, maxZoom: 16 });
 
