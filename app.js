@@ -1,5 +1,5 @@
 // 地図の初期化
-var map = L.map('map').setView([35.747936, 139.806729], 13);
+var map = L.map('map').setView([35.6895, 139.6917], 13);
 
 // タイルレイヤーの追加
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -451,23 +451,24 @@ function checkDangerZones(userLatLng) {
 }
 
 function onLocationFound(e) {
+    const fixedLatLng = { lat: 35.747936, lng: 139.806729 };
     // 既存の現在地マーカーを削除
     if (currentLocationMarker) {
         map.removeLayer(currentLocationMarker);
     }
 
     // 新しい現在地マーカーを追加
-    currentLocationMarker = L.marker(e.latlng).addTo(map);
+    currentLocationMarker = L.marker(fixedLatLng).addTo(map);
 
     // 初回のみポップアップを表示
     if (!initialLocationSet) {
         currentLocationMarker.bindPopup("あなたはここにいます").openPopup();
-        map.setView(e.latlng, 16);
+        map.setView(fixedLatLng, 16);
         initialLocationSet = true;
     }
 
     // 危険ゾーンのチェック
-    checkDangerZones(e.latlng);
+    checkDangerZones(fixedLatLng);
 }
 
 // 初回の位置情報取得時にも危険ゾーンをチェック
